@@ -1,6 +1,6 @@
 body {
     font-family: Raleway, serif;
-    color: #444;
+    color: #434343;
     letter-spacing: 1px;
 }
 
@@ -10,12 +10,33 @@ header {
     align-items: center;
 }
 
+#searchBar {
+    margin: 10px auto;
+    max-width: 300px;
+    background: #f1f1f1;
+    display: none;
+}
+
+#searchBar.show {
+    display: block;
+}
+
+#searchBarInput {
+    font-family: Raleway, serif;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
 #wrapper {
     width: 90%;
     max-width: 960px;
     margin: 20px auto;
     border-radius: 6px;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.5);
+    box-shadow: 0 1px 6px rgba(4, 4, 4, 0.5);
     box-sizing: border-box;
     padding: 0 0 20px;
     overflow: hidden;
