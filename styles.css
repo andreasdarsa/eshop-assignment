@@ -142,3 +142,36 @@ footer {
     max-width: 960px;
     margin: 0 auto;
 }
+
+#product-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#product-list h2 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 7px;
+    background-color: #fbfafa;
+    font-size: 16px;
+}
+
+.product-item .name {
+    font-weight: bold;
+}
+
+.product-item .info {
+    cursor: pointer;
+    font-size: 20px;
+    color: #007BFF;
+}

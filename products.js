@@ -58,6 +58,6 @@ if (productsButton) {
 }
 if (aboutButton) {
     aboutButton.addEventListener('click', () => {
-         alert('name1 - AEM1\nname2 - AEM2\nname3 - AEM3\n');
+         alert('2025 Project NIS-07-01:\nBill Zervos - AEM: 4442\nAndreas Darsaklis - AEM: 4403\nname3 - AEM3\n');
     });
 }
