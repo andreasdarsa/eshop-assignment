@@ -1,5 +1,6 @@
 let i = 0;
 let intervalID;
+const API_BASE = 'http://localhost:5000';
 const slides = document.getElementsByClassName('slide');
 const slideshow = document.querySelector('.slideshow');
 const nextButton = document.querySelector('.next');
@@ -40,15 +41,41 @@ if (slideshow) {
     intervalID = setInterval(showNextSlide, 3000);
 }
 
+async function fetchAllProducts() {
+    const response = await fetch(`${API_BASE}/search?q=`);
+    const products = await response.json();
+    renderProducts(products);
+}
+
+function renderProducts(products) {
+    const container = document.getElementById('productListContainer');
+    container.innerHTML = '';
+
+    products.forEach(product => {
+        const div = document.createElement('div');
+        div.className = 'product-item';
+        div.innerHTML = `<span class="name">${product.name}</span>`;
+        container.appendChild(div);
+    });
+}
+
 if (homeButton) {
     homeButton.addEventListener('click', () => {
          window.location.href = 'homepage.html';
     });
+    fetchAllProducts();
 }
 if (searchButton) {
     searchButton.addEventListener('click', () => {
         const searchBar = document.getElementById('searchBar');
         searchBar.classList.toggle('show');
+    });
+    document.getElementById('searchBar').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const query = document.getElementById('searchBarInput').value;
+        const response = await fetch(`${API_BASE}/search?q=${encodeURIComponent(query)}`);
+        const results = await response.json();
+        renderProducts(results);
     });
 }
 if (productsButton) {
