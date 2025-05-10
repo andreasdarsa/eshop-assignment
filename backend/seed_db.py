@@ -48,6 +48,51 @@ products = [
         "image_url": "",
         "likes": 1,
         "description": "Timeless canvas sneakers with a classic look."
+    },
+    {
+        "name": "Puma RS-X",
+        "category": "shoes",
+        "brand": "Puma",
+        "price": 110,
+        "image_url": "",
+        "likes": 0,
+        "description": "Futuristic sneakers with bold design and comfort."
+    },
+    {
+        "name": "Under Armour Charged",
+        "category": "shoes",
+        "brand": "Under Armour",
+        "price": 100,
+        "image_url": "",
+        "likes": 0,
+        "description": "Performance running shoes with Charged Cushioning."
+    },
+    {
+        "name": "Columbia Rain Jacket",
+        "category": "jackets",
+        "brand": "Columbia",
+        "price": 85,
+        "image_url": "",
+        "likes": 0,
+        "description": "Waterproof and breathable jacket for rainy days."
+    },
+    {
+        "name": "Champion Classic Hoodie",
+        "category": "hoodies",
+        "brand": "Champion",
+        "price": 65,
+        "image_url": "",
+        "likes": 0,
+        "description": "Everyday hoodie with soft cotton blend and iconic logo."
+    },
+    {
+        "name": "New Balance 574",
+        "category": "shoes",
+        "brand": "New Balance",
+        "price": 95,
+        "image_url": "",
+        "likes": 0,
+        "description": "Retro-style sneaker known for comfort and durability."
     }
 ]
 
