@@ -9,7 +9,7 @@ products = [
         "category": "shoes",
         "brand": "Nike",
         "price": 120,
-        "image_url": "",
+        "image_url": "images/shoes.jpg",
         "likes": 0,
         "description": "Classic and comfortable sneakers."
     },

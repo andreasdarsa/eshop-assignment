@@ -48,7 +48,8 @@ async function fetchAllProducts() {
 }
 
 function renderProducts(products) {
-    const container = document.getElementById('productListContainer');
+    console.log(products)
+    const container = document.getElementById('product-list');
     container.innerHTML = '';
 
     products.forEach(product => {
@@ -85,6 +86,6 @@ if (productsButton) {
 }
 if (aboutButton) {
     aboutButton.addEventListener('click', () => {
-         alert('2025 Project NIS-07-01:\nBill Zervos - AEM: 4442\nAndreas Darsaklis - AEM: 4403\nname3 - AEM3\n');
+         alert('2025 Project NIS-07-01:\nBill Zervos - AEM: 4442\nAndreas Darsaklis - AEM: 4403\nPavlos Gotovas - 4519\n');
     });
 }
