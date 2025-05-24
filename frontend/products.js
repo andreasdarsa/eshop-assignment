@@ -127,6 +127,6 @@ if (productsButton) {
 }
 if (aboutButton) {
     aboutButton.addEventListener('click', () => {
-         alert('2025 Project NIS-07-01:\nBill Zervos - AEM: 4442\nAndreas Darsaklis - AEM: 4403\nPavlos Gotovas - 4519\n');
+         alert('2025 Project NIS-07-01:\nBill Zervos - AEM: 4442\nAndreas Darsaklis - AEM: 4403\nPavlos Gotovas - AEM: 4519\n');
     });
 }
