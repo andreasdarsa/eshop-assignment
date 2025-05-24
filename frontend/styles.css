@@ -175,3 +175,49 @@ footer {
     font-size: 20px;
     color: #007bff;
 }
+
+/*Grid CSS*/
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.product-card {
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #fff;
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.product-card:hover {
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  max-height: 180px;
+  object-fit: contain;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: transform 0.2s;
+}
+
+.product-card img:hover {
+  transform: scale(1.03);
+}
+
+.product-card .name {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.product-card .likes {
+  color: #d33;
+  margin-top: 5px;
+}

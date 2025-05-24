@@ -48,16 +48,57 @@ async function fetchAllProducts() {
 }
 
 function renderProducts(products) {
-    console.log(products)
-    const container = document.getElementById('product-list');
-    container.innerHTML = '';
+    const grid = document.getElementById('products-grid');
+    grid.innerHTML = "";
 
     products.forEach(product => {
-        const div = document.createElement('div');
-        div.className = 'product-item';
-        div.innerHTML = `<span class="name">${product.name}</span>`;
-        container.appendChild(div);
-    });
+        const card = document.createElement("div");
+        card.className = "product-card";
+
+        const imageContainer = document.createElement("div");
+        imageContainer.className = "image-container";
+
+        const img = document.createElement("img");
+        img.src = product.image_url || "images/placeholder.jpg";
+        img.alt = product.name;
+        img.addEventListener("click", () => likeProduct(product._id));
+
+        const overlay_text = document.createElement("div");
+        overlay_text.className = "overlay-text";
+        overlay_text.textContent = product.description;
+
+        imageContainer.appendChild(img);
+        imageContainer.appendChild(overlay_text);
+
+        card.appendChild(imageContainer)
+
+        const name = document.createElement("div");
+        name.className = "name";
+        name.textContent = product.name;
+
+        const likes = document.createElement("div");
+        likes.className = "likes";
+        likes.textContent = `❤️ ${product.likes}`;
+
+        card.appendChild(name);
+        card.appendChild(likes);
+        grid.appendChild(card);
+  });
+}
+
+async function likeProduct(productID){
+    try{
+        await fetch(`${API_BASE}/like`,
+            {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({ product_id: productID })
+        });
+        fetchAllProducts();
+    }
+    catch(error){
+        console.log("Error liking product:", error);
+    }
 }
 
 if (homeButton) {
