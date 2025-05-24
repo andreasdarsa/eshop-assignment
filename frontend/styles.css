@@ -84,16 +84,9 @@ main {
   margin-top: 20px;
 }
 
-.slideshow-container h2 {
+.slideshow h2 {
   margin-bottom: 10px;
   font-size: 18px;
-}
-
-.slideshow-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
 }
 
 .slideshow {

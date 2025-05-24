@@ -1,7 +1,7 @@
-let i = 0;
+let slideIndex = 0;
+let slides = [];
 let intervalID;
 const API_BASE = 'http://localhost:5000';
-const slides = document.getElementsByClassName('slide');
 const slideshow = document.querySelector('.slideshow');
 const nextButton = document.querySelector('.next');
 const prevButton = document.querySelector('.prev');
@@ -10,17 +10,17 @@ const searchButton = document.getElementById('search');
 const productsButton = document.getElementById('toProducts');
 const aboutButton = document.getElementById('about');
 
+/* ========== SLIDESHOW ========== */
+
 if (slideshow) {
     function showNextSlide() {
-        slides[i].classList.remove('active');
-        i = (i + 1) % slides.length;
-        slides[i].classList.add('active');
+        slideIndex = (slideIndex + 1) % slides.length;
+        showSlide(slideIndex);
     }
 
     function showPrevSlide() {
-        slides[i].classList.remove('active');
-        i = (i - 1 + slides.length) % slides.length;
-        slides[i].classList.add('active');
+        slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+        showSlide(slideIndex);
     }
 
     function restartInterval() {
@@ -38,8 +38,35 @@ if (slideshow) {
         restartInterval();
     });
 
+    fetchPopularProducts();
     intervalID = setInterval(showNextSlide, 3000);
 }
+
+async function fetchPopularProducts() {
+    const response = await fetch('http://localhost:5000/popular-products');
+    const data = await response.json();
+    renderSlides(data);
+}
+
+function renderSlides(products) {
+    const container = document.getElementById('slidesContainer');
+    container.innerHTML = ''; // Clear existing
+
+    products.forEach((product, index) => {
+        const slide = document.createElement('div');
+        slide.className = 'slide';
+        if (index === 0) slide.classList.add('active');
+        slide.innerHTML = `<img src="${product.image_url}" alt="${product.name}" /><p>${product.name}</p>`;
+        container.appendChild(slide);
+    });
+    slides = document.querySelectorAll('.slide');
+}
+
+function showSlide(index) {
+    slides.forEach((s, i) => s.classList.toggle('active', i === index));
+}
+
+/* ========== PRODUCTS ========== */
 
 async function fetchAllProducts() {
     const response = await fetch(`${API_BASE}/search?q=`);
@@ -100,6 +127,8 @@ async function likeProduct(productID){
         console.log("Error liking product:", error);
     }
 }
+
+/* ========== BUTTONS ========== */
 
 if (homeButton) {
     homeButton.addEventListener('click', () => {
