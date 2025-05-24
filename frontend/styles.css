@@ -1,188 +1,156 @@
+/* ========== ΒΑΣΙΚΟ RESET ========== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
-    font-family: Raleway, serif;
-    color: #434343;
-    letter-spacing: 1px;
+  font-family: Raleway, serif;
+  color: #434343;
+  letter-spacing: 1px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#searchBar {
-    margin: 10px auto;
-    max-width: 300px;
-    background: #f1f1f1;
-    display: none;
-}
-
-#searchBar.show {
-    display: block;
-}
-
-#searchBarInput {
-    font-family: Raleway, serif;
-    width: 100%;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #cccccc;
-    border-radius: 4px;
-    margin-right: 10px;
-}
-
+/* ========== WRAPPER ========== */
 #wrapper {
-    width: 90%;
-    max-width: 960px;
-    margin: 20px auto;
-    border-radius: 6px;
-    box-shadow: 0 1px 6px rgba(4, 4, 4, 0.5);
-    box-sizing: border-box;
-    padding: 0 0 20px;
-    overflow: hidden;
-    border: 1px solid lightgray;
+  width: 90%;
+  max-width: 960px;
+  margin: 20px auto;
+  border-radius: 6px;
+  box-shadow: 0 1px 6px rgba(4, 4, 4, 0.5);
+  border: 1px solid lightgray;
+  overflow: hidden;
+  padding: 0 0 20px;
+  background-color: #fff;
+}
+
+/* ========== HEADER & NAVBAR ========== */
+header {
+  padding: 10px 0;
+  background-color: #f6f6f6;
 }
 
 .navbar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
 }
 
 .logo {
-    height: 75px;
-    margin-bottom: 10px;
+  height: 75px;
 }
 
 .page-title {
-    margin: 0;
-    font-size: 24px;
-    text-align: center;
-    font-weight: bold;
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
 }
 
 nav {
-    margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
 
 nav button {
-    margin: 5px;
-    background: #41b134;
-    border-radius: 4px;
-    padding: 10px 20px;
-    color: white;
-    transition: all 0.5s ease-in-out;
-    cursor: pointer;
+  background: #41b134;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s;
 }
 
 nav button:hover {
-    background: #094905;
+  background: #094905;
 }
 
+/* ========== MAIN CONTENT ========== */
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* ========== SLIDESHOW ========== */
 .slideshow-container {
-    text-align: center;
-    margin-top: 20px;
+  text-align: center;
+  margin-top: 20px;
 }
 
 .slideshow-container h2 {
-    margin-bottom: 10px;
-    font-size: 18px;
-    font-weight: normal;
+  margin-bottom: 10px;
+  font-size: 18px;
 }
 
 .slideshow-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .slideshow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    max-width: 100%;
-    height: 300px;
-    overflow: hidden;
+  display: flex;
+  position: relative;
+  max-width: 100%;
+  height: 300px;
+  overflow: hidden;
 }
 
 .slide {
-    max-width: 100%;
-    max-height: 100%;
-    display: none;
+  max-width: 100%;
+  max-height: 100%;
+  display: none;
 }
 
 .slide.active {
-    display: block;
+  display: block;
 }
 
 .slide-button {
-    background: none;
-    border: none;
-    font-size: 42px;
-    cursor: pointer;
-    user-select: none;
+  background: none;
+  border: none;
+  font-size: 42px;
+  cursor: pointer;
+  user-select: none;
 }
 
-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #4a4a4a;
-    color: white;
-    text-align: center;
-    font-size: 12px;
-    padding: 1px;
+/* ========== SEARCH BAR ========== */
+#searchBar {
+  display: block;
+  margin: 10px auto;
+  max-width: 300px;
+  background: #f1f1f1;
+  padding: 10px;
+  border-radius: 6px;
 }
 
-.footer-container {
-    max-width: 960px;
-    margin: 0 auto;
+#searchBar.show {
+  display: block;
 }
 
-#product-list {
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+#searchBarInput {
+  font-family: Raleway, serif;
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
 }
 
-#product-list h2 {
-    margin-bottom: 2px;
-    font-size: 18px;
-    font-weight: normal;
-}
-
-.product-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-    border: 1px solid #cccccc;
-    border-radius: 7px;
-    background-color: #fbfafa;
-    font-size: 16px;
-}
-
-.product-item .name {
-    font-weight: bold;
-}
-
-.product-item .info {
-    cursor: pointer;
-    font-size: 20px;
-    color: #007bff;
-}
-
-/*Grid CSS*/
+/* ========== PRODUCT GRID ========== */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 20px;
-  padding: 20px;
-  font-family: Arial, sans-serif;
+  margin-top: 20px;
 }
 
 .product-card {
@@ -220,4 +188,61 @@ footer {
 .product-card .likes {
   color: #d33;
   margin-top: 5px;
+}
+
+.image-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.image-container img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  background-color: rgba(0,0,0,0.6);
+  padding: 10px 20px;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  width: 80%;
+  text-align: center;
+}
+
+.image-container:hover .overlay-text {
+  opacity: 1;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  background-color: #4a4a4a;
+  color: white;
+  text-align: center;
+  font-size: 12px;
+  padding: 10px 0;
+  margin-top: auto;
+}
+
+.footer-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+/* ========== RESPONSIVE NAVBAR ========== */
+@media (min-width: 600px) {
+  .navbar {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
