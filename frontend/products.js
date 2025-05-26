@@ -49,7 +49,7 @@ async function fetchPopularProducts() {
 }
 
 function renderSlides(products) {
-    const container = document.getElementById('slidesContainer');
+    const container = document.getElementById('slideshow-container');
     container.innerHTML = ''; // Clear existing
 
     products.forEach((product, index) => {
