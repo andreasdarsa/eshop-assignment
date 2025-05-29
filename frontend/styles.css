@@ -151,10 +151,6 @@ main {
   border-radius: 6px;
 }
 
-#searchBar.show {
-  display: block;
-}
-
 #searchBarInput {
   font-family: Raleway, serif;
   width: 100%;
@@ -257,7 +253,7 @@ footer {
   padding: 10px;
 }
 
-/* ========== RESPONSIVE NAVBAR ========== */
+/* ========== NAVBAR ========== */
 @media (min-width: 600px) {
   .navbar {
     flex-direction: row;

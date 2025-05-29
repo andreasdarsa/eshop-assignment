@@ -1,8 +1,6 @@
 from db import products_col
 
-products_col.delete_many({}) # deletes any previously existing product in the db
-
-# initialization of the database with some products
+products_col.delete_many({})
 products = [
     {
         "name": "Nike Air Max 90",

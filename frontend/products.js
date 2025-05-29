@@ -6,7 +6,7 @@ const slideshow = document.querySelector('.slideshow');
 const nextButton = document.querySelector('.next');
 const prevButton = document.querySelector('.prev');
 const homeButton = document.getElementById('home');
-const searchButton = document.getElementById('search');
+const searchBar = document.getElementById('searchBar');
 const productsButton = document.getElementById('toProducts');
 const aboutButton = document.getElementById('about');
 
@@ -121,11 +121,31 @@ async function likeProduct(productID){
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify({ product_id: productID })
         });
-        fetchAllProducts();
+        await fetchAllProducts();
     }
     catch(error){
         console.log("Error liking product:", error);
     }
+}
+
+/* ========== SEARCH BAR ========== */
+
+if (searchBar) {
+    document.getElementById('searchBar')
+        .addEventListener('input', async (e) => {
+            const query = e.target.value.trim();
+            if (query.length === 0) {
+                await fetchAllProducts();
+                return;
+            }
+            const response = await fetch(`${API_BASE}/search?q=${encodeURIComponent(query)}`);
+            const results = await response.json();
+            renderProducts(results);
+        });
+    document.getElementById('searchBar')
+        .addEventListener('submit', (e) => {
+            e.preventDefault();
+        });
 }
 
 /* ========== BUTTONS ========== */
@@ -136,19 +156,7 @@ if (homeButton) {
     });
     fetchAllProducts();
 }
-if (searchButton) {
-    searchButton.addEventListener('click', () => {
-        const searchBar = document.getElementById('searchBar');
-        searchBar.classList.toggle('show');
-    });
-    document.getElementById('searchBar').addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const query = document.getElementById('searchBarInput').value;
-        const response = await fetch(`${API_BASE}/search?q=${encodeURIComponent(query)}`);
-        const results = await response.json();
-        renderProducts(results);
-    });
-}
+
 if (productsButton) {
     productsButton.addEventListener('click', () => {
         window.location.href = 'products.html';
@@ -156,6 +164,9 @@ if (productsButton) {
 }
 if (aboutButton) {
     aboutButton.addEventListener('click', () => {
-         alert('2025 Project NIS-07-01:\nBill Zervos - AEM: 4442\nAndreas Darsaklis - AEM: 4403\nPavlos Gotovas - AEM: 4519\n');
+         alert('2025 Project NIS-07-01:' +
+             '\nBill Zervos - AEM: 4442' +
+             '\nAndreas Darsaklis - AEM: 4403' +
+             '\nPavlos Gotovas - AEM: 4519\n');
     });
 }
