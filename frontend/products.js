@@ -107,9 +107,15 @@ function renderProducts(products) {
         likes.className = "likes";
         likes.textContent = `❤️ ${product.likes}`;
 
+        const price = document.createElement("div");
+        price.className = "price";
+        price.textContent = `€ ${product.price.toFixed(2)}`;
+
         card.appendChild(name);
         card.appendChild(likes);
+        card.appendChild(price);
         grid.appendChild(card);
+
   });
 }
 
